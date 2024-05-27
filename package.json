@@ -1,0 +1,53 @@
+{
+  "name": "tabit-workspace-task",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "host-app": "ng serve host-app --configuration development --port 4200 -o",
+    "mf-app": "ng serve mf-app --configuration development --port 4300 -o",
+    "start": "concurrently \"npm run host-app\" \"npm run mf-app\"",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "serve:ssr:host-app": "node dist/host-app/server/server.mjs",
+    "serve:ssr:mf-app": "node dist/mf-app/server/server.mjs",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular-architects/module-federation": "^17.0.8",
+    "@angular/animations": "^17.3.10",
+    "@angular/common": "^17.3.10",
+    "@angular/compiler": "^17.3.10",
+    "@angular/core": "^17.3.10",
+    "@angular/forms": "^17.3.10",
+    "@angular/platform-browser": "^17.3.10",
+    "@angular/platform-browser-dynamic": "^17.3.10",
+    "@angular/platform-server": "^17.3.10",
+    "@angular/router": "^17.3.10",
+    "@angular/ssr": "^17.3.8",
+    "express": "^4.18.2",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.8",
+    "@angular/cli": "^17.3.8",
+    "@angular/compiler-cli": "^17.3.10",
+    "@types/express": "^4.17.17",
+    "@types/jasmine": "~5.1.0",
+    "@types/node": "^18.18.0",
+    "concurrently": "^8.2.2",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ngx-build-plus": "^17.0.0",
+    "typescript": "~5.4.2",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
