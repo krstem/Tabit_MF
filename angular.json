@@ -30,6 +30,7 @@
               "projects/host-app/src/assets"
 						],
 						"styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
 							"projects/host-app/src/styles.scss"
 						],
 						"scripts": [],
@@ -97,6 +98,7 @@
               "projects/host-app/src/assets"
 						],
 						"styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
 							"projects/host-app/src/styles.scss"
 						],
 						"scripts": []

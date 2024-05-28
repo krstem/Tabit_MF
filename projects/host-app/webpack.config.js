@@ -38,6 +38,7 @@ module.exports = {
       // For hosts (please adjust)
       remotes: {
         "mfApp": "http://localhost:4300/remoteEntry.js",
+        "myLoginApp": "http://localhost:4400/remoteEntry.js",
       },
 
       shared: share({
