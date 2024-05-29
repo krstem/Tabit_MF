@@ -1,7 +1,57 @@
 # TabitWorkspaceTask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.1. Because the task required angular 17, i downgrade packages. Also, <ins>Angular module-federation doesn't have support for Angular 18</ins>.
 
+## Project structure
+- mf-app Angular application with UI
+- host-app Shell app with angular. There we have navigation and initialization for each APP
+- myLoginApp External Angular application in separate app
+
+## Task Project Structure:
+1. Host Application: This application acts as the container and manages the overall
+   layout. It will house the shared components.
+2. Microfrontend 1 (MFE 1): This microfrontend focuses on a specific functionality with
+   its own UI and local state.
+3. Microfrontend 2 (MFE 2): This microfrontend focuses on a different functionality with
+   its own UI and local state.
+
+## Technologies:
+   ● Angular 17 (for all applications)
+
+   ● NgRx (for state management)
+
+   ● Module Federation (for microfrontend communication within the host)
+
+## Project Requirements:
+1. Develop Microfrontends: Create two independent Angular 17 applications
+   representing the microfrontends. Each microfrontend should:
+   
+   ● Implement NgRx for local state management specific to its functionality.
+   
+   ● Utilize shared components from the host application for UI elements.
+   
+   ● Be deployable as a standalone SPA (consider independent routing if needed).
+2. Develop Host Application: Build an Angular 17 application serving as the host:
+   
+   ● Implement NgRx for a shared state accessible by both microfrontends.
+   
+   ● Develop or integrate reusable components that can be utilized by both
+   microfrontends.
+   
+   ● Implement Module Federation to dynamically load microfrontends within the
+   host (consider lazy loading strategies).
+3. Integration: Integrate the microfrontends into the host application:
+   
+   ● Configure the host to load microfrontends based on routing or specific criteria.
+   
+   ● Ensure seamless communication between microfrontends and the host
+   application using the shared state.
+   
+   ● Demonstrate the ability for each microfrontend to function independently as a
+   separate SPA.
+4. Documentation: Provide a brief document outlining your approach and key
+   functionalities.
+5. The topic of the project is your choice.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
