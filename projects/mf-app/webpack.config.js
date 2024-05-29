@@ -32,6 +32,7 @@ module.exports = {
       name: "mfApp",
       filename: "remoteEntry.js",
       exposes: {
+        './App': './projects/mf-app/src/app/app.component.ts',
         './WelcomeComponent': './projects/mf-app/src/app/welcome/welcome.component.ts',
         './ProductsComponent': './projects/mf-app/src/app/products/products.component.ts',
       },

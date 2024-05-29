@@ -1,1 +1,13 @@
 <p>List of products works!</p>
+<div *ngIf="inProgress">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div *ngFor="let item of products">
+  <div style="display: ruby">
+    <h3>{{ item.name }}</h3>
+    |<h3>{{ item.type }}</h3>
+    |<h3>{{ item.price }}</h3>
+  </div>
+  <br />
+</div>
