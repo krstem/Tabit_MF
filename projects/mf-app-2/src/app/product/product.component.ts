@@ -10,6 +10,7 @@ import {Store} from "@ngrx/store";
 import {createProductRequestAction} from "../store/app.actions";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {getProductsState, productRequestAction} from "../../../../host-app/src/store/app.actions";
 
 @Component({
   selector: 'app-product',
@@ -40,18 +41,21 @@ export class ProductComponent {
     });
     this.inProgress = true;
     this._store.select("product").pipe(takeUntilDestroyed()).subscribe((data: any) => {
-      console.log('STORE create product', data);
+      console.log(data, 'READING data from STORE for PRODUCT (single item on create)');
       if (data && data.product) {
         this.productForm.setValue({
           name: data.product.name,
           type: data.product.type,
           price: data.product.price,
         })
-      };
+      }
+      ;
       this.inProgress = false;
 
+    });
+    this._store.select("products").pipe(takeUntilDestroyed()).subscribe((data: any) => {
+      console.log(data, 'CHECK products STORE')
     })
-
   }
 
   onSubmit(value: any): void {
@@ -60,6 +64,9 @@ export class ProductComponent {
       console.log('Create product form submitted', value);
       // add value in to store
       this._store.dispatch(createProductRequestAction({payload: value}));
+
+
+      this._store.dispatch(productRequestAction(value));
       setTimeout(() => { this.inProgress = false }, 4000);
     } else {
       this.inProgress = false;

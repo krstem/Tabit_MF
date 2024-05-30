@@ -9,6 +9,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - my-app-3 Angular application with UI - here we crate example of login operation, and we're storing data (copy of external app myLoginApp)
 - myLoginApp External Angular application in separate repo (https://github.com/krstem/angular-login-page-ui). I try to include external application in to MF arch and to have a store
 
+## Host app
+- contains shared AppActions, AppEffects and AppReducers
+- AppActions - Unique events that are dispatched from components and services. Based on the actions we are updating the store between MF apps, you can call for specific action for specific store (currently product's store)
+- AppReducer - Manage the state changes by taking the current state and the latest action to produce a new state
+- AppEffects - Importing all possible effects in app to provide new sources of actions
 ## Task Project Structure:
 1. Host Application: This application acts as the container and manages the overall
    layout. It will house the shared components.

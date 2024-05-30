@@ -1,6 +1,10 @@
 import {createReducer, on} from "@ngrx/store";
 import {AppState} from "../../models/app.state.model";
-import {productErrorAction, productResponseAction, resetProductAction} from "../../store/app.actions";
+import {
+  productErrorAction,
+  productResponseAction,
+  resetProductAction
+} from "../../../../../host-app/src/store/app.actions";
 
 export const productKey = "product";
 export const initialState: AppState = {
@@ -10,11 +14,19 @@ export const initialState: AppState = {
 const _productReducer = createReducer(
   initialState,
   on(productResponseAction, (state, {payload}) => {
-    console.log(payload)
-    console.log(state)
-    return {
-      ...state,
-      products: payload.data.products,
+    console.log(payload, 'PRODUCTS PAYLOAD REDUCER')
+    console.log(state, 'PRODUCTS STATE REDUCER')
+    if (state.products) { // check if we have products in store
+      console.log('WE HAVE DATA DO UPDATE')
+      return {
+        ...state,
+        products: [...state.products, payload.data.products[0]],
+      }
+    } else {
+      return {
+        ...state,
+        products: payload.data.products,
+      }
     }
   }),
   on(productErrorAction, (state, {error}) => {
