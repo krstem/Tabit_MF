@@ -3,9 +3,11 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.1. Because the task required angular 17, i downgrade packages. Also, <ins>Angular module-federation doesn't have support for Angular 18</ins>.
 
 ## Project structure
-- mf-app Angular application with UI
 - host-app Shell app with angular. There we have navigation and initialization for each APP
-- myLoginApp External Angular application in separate app
+- mf-app Angular application with UI - here we present a list of products. The data come from server only once then we are reading them from store
+- my-app-2 Angular application with UI - here we crate crud operation for storing data
+- my-app-3 Angular application with UI - here we crate example of login operation, and we're storing data (copy of external app myLoginApp)
+- myLoginApp External Angular application in separate repo (https://github.com/krstem/angular-login-page-ui). I try to include external application in to MF arch and to have a store
 
 ## Task Project Structure:
 1. Host Application: This application acts as the container and manages the overall
