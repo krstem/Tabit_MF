@@ -47,7 +47,7 @@ const PRODUCTS_DATA = {
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class ProductsService {
 
   readonly url = 'https://www.tabit.cloud/';
 

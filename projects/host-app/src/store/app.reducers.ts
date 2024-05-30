@@ -1,11 +1,11 @@
 import { ActionReducer, MetaReducer } from "@ngrx/store";
-import {productKey, productReducer} from "../../../mf-app/src/app/products/store/product.reducers";
+import {productKey, productsReducer} from "../../../mf-app/src/app/products/store/products.reducers";
 import {localStorageSync} from "ngrx-store-localstorage";
 import {createProductKey, createProductReducer} from "../../../mf-app-2/src/app/store/product.reducers";
 import {authKey, authReducer} from "../../../mf-app-3/src/app/store/auth.reducers";
 
 export const appReducer = {
-  products: productReducer,
+  products: productsReducer,
   product: createProductReducer,
   auth: authReducer
 }

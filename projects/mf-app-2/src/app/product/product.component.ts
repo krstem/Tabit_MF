@@ -9,11 +9,13 @@ import {CommonModule} from "@angular/common";
 import {Store} from "@ngrx/store";
 import {createProductRequestAction} from "../store/app.actions";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @Component({
   selector: 'app-product',
   standalone: true,
   imports: [
+    MatProgressBarModule,
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -22,13 +24,13 @@ import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-
   ],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
   productForm: FormGroup;
+  inProgress: boolean = true;
 
   constructor(private formBuilder: FormBuilder, private _store: Store<any>) {
     this.productForm = this.formBuilder.group({
@@ -36,17 +38,31 @@ export class ProductComponent {
       type: ['', [Validators.required]],
       price: ['', [Validators.required, Validators.min(1)]],
     });
+    this.inProgress = true;
     this._store.select("product").pipe(takeUntilDestroyed()).subscribe((data: any) => {
-      console.log('STORE create product', data)
+      console.log('STORE create product', data);
+      if (data && data.product) {
+        this.productForm.setValue({
+          name: data.product.name,
+          type: data.product.type,
+          price: data.product.price,
+        })
+      };
+      this.inProgress = false;
+
     })
 
   }
 
   onSubmit(value: any): void {
+    this.inProgress = true;
     if (this.productForm.valid) {
       console.log('Create product form submitted', value);
       // add value in to store
       this._store.dispatch(createProductRequestAction({payload: value}));
+      setTimeout(() => { this.inProgress = false }, 4000);
+    } else {
+      this.inProgress = false;
     }
   }
 }

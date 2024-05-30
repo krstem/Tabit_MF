@@ -2,11 +2,11 @@ import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {catchError, map, mergeMap, of} from "rxjs";
 import {getProductsState, productErrorAction, productRequestAction, productResponseAction} from "../../store/app.actions";
-import {ProductService} from "../service/product.service";
+import {ProductsService} from "../service/products.service";
 
 @Injectable()
-export class ProductEffects {
-  constructor(private actions$: Actions, private productService: ProductService) {
+export class ProductsEffects {
+  constructor(private actions$: Actions, private productService: ProductsService) {
   }
 
   productsRequest$ = createEffect(

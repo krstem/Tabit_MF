@@ -31,6 +31,6 @@ const _productReducer = createReducer(
   })
 )
 
-export function productReducer(state: AppState, action: any) {
+export function productsReducer(state: any, action: any) {
   return _productReducer(state, action)
 }
