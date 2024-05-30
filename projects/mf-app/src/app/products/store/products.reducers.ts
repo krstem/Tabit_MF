@@ -14,10 +14,11 @@ export const initialState: AppState = {
 const _productReducer = createReducer(
   initialState,
   on(productResponseAction, (state, {payload}) => {
-    console.log(payload, 'PRODUCTS PAYLOAD REDUCER')
-    console.log(state, 'PRODUCTS STATE REDUCER')
-    if (state.products) { // check if we have products in store
-      console.log('WE HAVE DATA DO UPDATE')
+    console.log(payload, '++++++++ PRODUCTS PAYLOAD REDUCER ++++++++ ')
+    console.log(state, '++++++++  PRODUCTS STATE REDUCER ++++++++ ')
+    // check if we have products in store
+    if (state.products) {
+      console.log('WE HAVE DATA DO AN UPDATE')
       return {
         ...state,
         products: [...state.products, payload.data.products[0]],

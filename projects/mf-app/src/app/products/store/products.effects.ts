@@ -16,7 +16,6 @@ export class ProductsEffects {
         mergeMap(() => {
           return this.productService.getAllProducts().pipe(
             map((res: any) => {
-              console.log(res, '--------productsRequest$ -------')
               return productResponseAction({payload: res})
             }),
             catchError((error) => of(productErrorAction(error)))
@@ -30,11 +29,9 @@ export class ProductsEffects {
       this.actions$.pipe(
         ofType(
           productRequestAction),
-        mergeMap((action) => {
-          console.log('++++++ createProduct 1 +++++++')
-          return this.productService.createProduct(action.payload).pipe(
+        mergeMap((payload) => {
+          return this.productService.createProduct(payload).pipe(
             map((res: any) => {
-              console.log('++++++ createProduct 2 +++++++')
               return productResponseAction({payload: res})
             }),
             catchError((error) => of(productErrorAction(error)))

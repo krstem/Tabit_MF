@@ -6,7 +6,6 @@ import {ProductRequestModel} from "../../models/product.model";
 const PRODUCT_DATA = {
   success: 200,
   data: {
-    isAuth: true,
     products: [{
       name: 'Toast',
       type: 'Lite Breakfast',
@@ -18,7 +17,6 @@ const PRODUCT_DATA = {
 const PRODUCTS_DATA = {
   success: 200,
   data: {
-    isAuth: true,
     products: [
       {
         name: 'Cornflakes',
@@ -54,8 +52,14 @@ export class ProductsService {
   constructor(private httpClient: HttpClient) {
   }
 
-  createProduct(payload: ProductRequestModel) {
-    return of(PRODUCT_DATA).pipe(delay(1000)); // only for simulation that something is loaded
+  createProduct(payload: any) {
+    console.log(payload, '***************')
+    return of({
+      success: 200,
+      data: {
+        products: [payload]
+      }
+    }).pipe(delay(1000)); // only for simulation that something is loaded, WE Return the same only to update the store (this can be object from server)
   }
 
   getAllProducts() {

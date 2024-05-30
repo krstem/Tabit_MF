@@ -32,6 +32,7 @@ import {getProductsState, productRequestAction} from "../../../../host-app/src/s
 export class ProductComponent {
   productForm: FormGroup;
   inProgress: boolean = true;
+  isAnUpdate: boolean = true;
 
   constructor(private formBuilder: FormBuilder, private _store: Store<any>) {
     this.productForm = this.formBuilder.group({
@@ -43,6 +44,7 @@ export class ProductComponent {
     this._store.select("product").pipe(takeUntilDestroyed()).subscribe((data: any) => {
       console.log(data, 'READING data from STORE for PRODUCT (single item on create)');
       if (data && data.product) {
+        this.isAnUpdate = true;
         this.productForm.setValue({
           name: data.product.name,
           type: data.product.type,
@@ -61,7 +63,6 @@ export class ProductComponent {
   onSubmit(value: any): void {
     this.inProgress = true;
     if (this.productForm.valid) {
-      console.log('Create product form submitted', value);
       // add value in to store
       this._store.dispatch(createProductRequestAction({payload: value}));
 
