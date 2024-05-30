@@ -5,7 +5,7 @@ import {provideClientHydration} from '@angular/platform-browser';
 import {provideStore} from "@ngrx/store";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {provideEffects} from "@ngrx/effects";
-import {provideHttpClient} from "@angular/common/http";
+import {provideHttpClient, withFetch} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {routes} from "./app.routes";
 import {CreateProductEffects} from "./store/create.product.effects";
@@ -15,7 +15,7 @@ export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection(
     {eventCoalescing: true}),
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideClientHydration(),
     provideStore(appReducer,{metaReducers: metaReducers}),
     provideEffects([CreateProductEffects]),

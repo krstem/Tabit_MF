@@ -8,19 +8,19 @@ import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {provideEffects} from "@ngrx/effects";
 import {appReducer, metaReducers} from "../../../host-app/src/store/app.reducers";
 import {Effects} from "../../../host-app/src/store/app.effects";
-import {provideHttpClient} from "@angular/common/http";
+import {provideHttpClient, withFetch} from "@angular/common/http";
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection(
     {eventCoalescing: true}),
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideClientHydration(),
     provideStore(appReducer,{metaReducers: metaReducers}),
-    provideEffects(Effects),
+    provideEffects(Effects), // use all effects for demonstration of store between components
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
-      logOnly: !isDevMode() // Restrict extension to log-only mode
+      logOnly: !isDevMode() // Restrict an extension to log-only mode
     }),
   ]
 };
