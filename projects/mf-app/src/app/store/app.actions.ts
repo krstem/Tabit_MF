@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 
 export const productRequestAction = createAction(
-  '[Auth] login request action',
+  '[Product] products request action',
   props<{payload: any}>()
 );
 

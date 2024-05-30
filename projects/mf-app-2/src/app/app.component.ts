@@ -9,5 +9,5 @@ import {RouterLink, RouterOutlet} from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'mf-app';
+  title = 'mf-app-2 copy of Login external';
 }

@@ -1,10 +1,11 @@
 import {loadRemoteModule} from '@angular-architects/module-federation';
 import {Routes} from '@angular/router';
 import {ShellComponent} from "./shell/shell.component";
-import {AppComponent} from "../../../mf-app/src/app/app.component";
+import {ProductComponent} from "../../../mf-app-2/src/app/product/product.component";
 
 const MFE_APP_URL = "http://localhost:4300/remoteEntry.js";
 const MFE_APP_2_URL = "http://localhost:4400/remoteEntry.js"; // external repository
+const MFE_APP_3_URL = "http://localhost:4500/remoteEntry.js"; // external repository
 export const routes: Routes = [
   {
     path: '',
@@ -31,13 +32,6 @@ export const routes: Routes = [
       }).then(m => m.ProductsComponent).catch(err => console.log(err, '----- ERRoR----'));
     }
   },
-  // {
-  //   path: 'login',
-  //   loadChildren: () =>
-  //     loadRemoteModule({ type: 'module', remoteEntry: MFE_APP_2_URL, exposedModule: './Login' }).then(
-  //       (m) => m.LoginModule,
-  //     ).catch(err => console.log(err, '----- ERRoR----')),
-  // },
   {
     path: 'login',
     loadComponent: () => {
@@ -54,9 +48,9 @@ export const routes: Routes = [
       // loadChildren: () => {
       return loadRemoteModule({
         type: "module",
-        remoteEntry: MFE_APP_URL,
-        exposedModule: "./RegistrationModule",
-      }).then(m => m.RegistrationModule).catch(err => console.log(err));
+        remoteEntry: MFE_APP_3_URL,
+        exposedModule: "./CreateProduct",
+      }).then(m => m.ProductComponent).catch(err => console.log(err));
     }
   },
   {
