@@ -38,6 +38,13 @@ export class ProductComponent {
     });
     this._store.select("product").pipe(takeUntilDestroyed()).subscribe((data: any) => {
       console.log('STORE create product', data)
+      if (data && data.product) {
+        this.productForm.setValue({
+          name: data.product.name,
+          type: data.product.type,
+          price: data.product.price,
+        })
+      }
     })
 
   }
