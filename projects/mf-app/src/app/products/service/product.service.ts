@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {delay, of} from 'rxjs';
-import {ProductRequestModel} from "../model/product.model";
+import {ProductRequestModel} from "../../models/product.model";
 
 const PRODUCT_DATA = {
   success: 200,
@@ -59,6 +59,6 @@ export class ProductService {
   }
 
   getAllProducts() {
-    return of(PRODUCTS_DATA).pipe(delay(1000)); // only for simulation that something is loaded
+    return of(PRODUCTS_DATA).pipe(delay(4500)); // only for simulation that something is loaded
   }
 }

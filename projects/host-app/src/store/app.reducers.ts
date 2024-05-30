@@ -1,5 +1,5 @@
 import { ActionReducer, MetaReducer } from "@ngrx/store";
-import {productKey, productReducer} from "./product.reducers";
+import {productKey, productReducer} from "../../../mf-app/src/app/products/store/product.reducers";
 import {localStorageSync} from "ngrx-store-localstorage";
 
 export const appReducer = {
@@ -9,7 +9,7 @@ export function localStorageSyncReducer(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
   return localStorageSync({
-      keys: [productKey],
+      keys: [productKey], // add here all keys from the APP
       rehydrate: true,
       storage: sessionStorage,
   })(reducer);

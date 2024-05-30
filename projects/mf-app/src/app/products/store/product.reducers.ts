@@ -1,6 +1,6 @@
 import {createReducer, on} from "@ngrx/store";
-import {AppState} from "../model/app.state.model";
-import {productErrorAction, productResponseAction, resetProductAction} from "./app.actions";
+import {AppState} from "../../models/app.state.model";
+import {productErrorAction, productResponseAction, resetProductAction} from "../../store/app.actions";
 
 export const productKey = "product";
 export const initialState: AppState = {

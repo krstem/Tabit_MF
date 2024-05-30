@@ -6,8 +6,8 @@ import {provideClientHydration} from '@angular/platform-browser';
 import {provideStore} from "@ngrx/store";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {provideEffects} from "@ngrx/effects";
-import {appReducer, metaReducers} from "./store/app.reducers";
-import {Effects} from "./store/app.effects";
+import {appReducer, metaReducers} from "../../../host-app/src/store/app.reducers";
+import {Effects} from "../../../host-app/src/store/app.effects";
 import {provideHttpClient} from "@angular/common/http";
 
 export const appConfig: ApplicationConfig = {
@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     provideClientHydration(),
-    provideStore(appReducer,{metaReducers}),
+    provideStore(appReducer,{metaReducers: metaReducers}),
     provideEffects(Effects),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states

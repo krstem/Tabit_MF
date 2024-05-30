@@ -63,16 +63,18 @@
     <div class="right-side">
       <div class="pill-group">
         @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
+          { title: 'Products', link: '/products', target: '_self' },
+          { title: 'Welcome', link: '/welcome', target: '_self' },
+          { title: 'Explore the Docs', link: 'https://angular.dev', target: '_blank'  },
+          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials', target: '_blank'  },
+          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli', target: '_blank'  },
+          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service', target: '_blank'  },
+          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools', target: '_blank'  },
         ]; track item.title) {
           <a
             class="pill"
             [href]="item.link"
-            target="_blank"
+            [target]="item.target"
             rel="noopener"
           >
             <span>{{ item.title }}</span>

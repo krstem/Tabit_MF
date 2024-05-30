@@ -8,8 +8,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {provideStore} from "@ngrx/store";
 import {provideEffects} from "@ngrx/effects";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
-import {Effects} from "../../../mf-app/src/app/store/app.effects";
-import {appReducer, metaReducers} from "../../../mf-app/src/app/store/app.reducers";
+import {Effects} from "../store/app.effects";
+import {appReducer, metaReducers} from "../store/app.reducers";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(),
-    provideStore(appReducer,{metaReducers}),
+    provideStore(appReducer,{metaReducers: metaReducers}),
     provideEffects(Effects),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states

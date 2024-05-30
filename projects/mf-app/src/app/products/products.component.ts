@@ -4,7 +4,7 @@ import {getProductsState} from "../store/app.actions";
 import {Subject, takeUntil} from "rxjs";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {NgForOf, NgIf} from "@angular/common";
-import {ProductRequestModel} from "../model/product.model";
+import {ProductRequestModel} from "../models/product.model";
 
 @Component({
   selector: 'app-products',
@@ -20,13 +20,12 @@ import {ProductRequestModel} from "../model/product.model";
 })
 export class ProductsComponent {
   unsubscribe = new Subject();
-  inProgress: boolean = false;
+  inProgress: boolean = true;
   products: ProductRequestModel[] = [];
 
   constructor(private _store: Store<any>) {
-
     this._store.select("products").pipe(takeUntil(this.unsubscribe)).subscribe((data: any) => {
-      this.inProgress = true;
+      console.log(data, 'CHECK products STORE')
       // check if we have data
       if (data && data.products) {
         console.log(data, 'FROM STORE')
@@ -35,8 +34,7 @@ export class ProductsComponent {
       } else { // no data from store get from server
         // add value in to store
         this._store.dispatch(getProductsState());
-        this.inProgress = false;
-
+        setTimeout(() => { this.inProgress = false }, 4000);
       }
     })
 

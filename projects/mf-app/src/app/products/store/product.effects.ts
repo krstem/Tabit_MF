@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {catchError, map, mergeMap, of} from "rxjs";
-import {getProductsState, productErrorAction, productRequestAction, productResponseAction} from "./app.actions";
+import {getProductsState, productErrorAction, productRequestAction, productResponseAction} from "../../store/app.actions";
 import {ProductService} from "../service/product.service";
 
 @Injectable()
@@ -16,7 +16,7 @@ export class ProductEffects {
         mergeMap(() => {
           return this.productService.getAllProducts().pipe(
             map((res: any) => {
-              console.log(res, '---------------')
+              console.log(res, '--------productsRequest$ -------')
               return productResponseAction({payload: res})
             }),
             catchError((error) => of(productErrorAction(error)))
@@ -41,7 +41,3 @@ export class ProductEffects {
       )
   );
 }
-
-export const Effects = [
-  ProductEffects
-]
