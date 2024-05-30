@@ -10,7 +10,7 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: "hostApp",
+    uniqueName: "mfApp3",
     publicPath: "auto"
   },
   optimization: {
@@ -26,22 +26,23 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      // library: {type: "module"},
+      library: {type: "module"},
 
       // For remotes (please adjust)
-      name: "hostApp",
-      // filename: "remoteEntry.js",
-      // exposes: {
-      //     './Component': './projects/host-app/src/app/app.component.ts',
-      // },
+      name: "mfApp3",
+      filename: "remoteEntry.js",
+      exposes: {
+        './LoginInside': './projects/mf-app-3/src/app/login/login.component.ts',
+        './Profile': './projects/mf-app-3/src/app/profile/profile.component.ts',
+      },
 
       // For hosts (please adjust)
-      remotes: {
-        "mfApp": "http://localhost:4300/remoteEntry.js",
-        "myLoginApp": "http://localhost:4400/remoteEntry.js",
-        "mfApp2": "http://localhost:4500/remoteEntry.js",
-        "mfApp3": "http://localhost:4600/remoteEntry.js",
-      },
+      // remotes: {
+      //     "hostApp": "http://localhost:4200/remoteEntry.js",
+      //     "mfApp": "http://localhost:4300/remoteEntry.js",
+      //     "mfApp2": "http://localhost:4500/remoteEntry.js",
+
+      // },
 
       shared: share({
         "@ngrx/store": {singleton: true, strictVersion: true, requiredVersion: 'auto'},

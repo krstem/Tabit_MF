@@ -20,7 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideEffects(Effects),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
-      logOnly: isDevMode() // Restrict extension to log-only mode (currently only DEV, then !isDevMode())
+      logOnly: !isDevMode() // Restrict extension to log-only mode
     }),
   ]
 };

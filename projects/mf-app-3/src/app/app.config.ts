@@ -1,15 +1,16 @@
 import {ApplicationConfig, importProvidersFrom, isDevMode, provideZoneChangeDetection} from '@angular/core';
-import {provideRouter} from '@angular/router';
+import { provideRouter } from '@angular/router';
 
-import {provideClientHydration} from '@angular/platform-browser';
-import {provideStore} from "@ngrx/store";
-import {provideStoreDevtools} from "@ngrx/store-devtools";
-import {provideEffects} from "@ngrx/effects";
+import { routes } from './app.routes';
+import { provideClientHydration } from '@angular/platform-browser';
 import {provideHttpClient} from "@angular/common/http";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {routes} from "./app.routes";
-import {CreateProductEffects} from "./store/create.product.effects";
+import {provideStore} from "@ngrx/store";
 import {appReducer, metaReducers} from "../../../host-app/src/store/app.reducers";
+import {provideEffects} from "@ngrx/effects";
+import {AuthEffects} from "./store/auth.effects";
+import {provideStoreDevtools} from "@ngrx/store-devtools";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {Effects} from "../../../host-app/src/store/app.effects";
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection(
@@ -17,8 +18,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     provideClientHydration(),
-    provideStore(appReducer,{metaReducers: metaReducers}),
-    provideEffects([CreateProductEffects]),
+    provideStore(appReducer,{metaReducers}),
+    provideEffects(Effects),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode() // Restrict extension to log-only mode

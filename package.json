@@ -6,14 +6,16 @@
     "host-app": "ng serve host-app --configuration development --port 4200 -o",
     "mf-app": "ng serve mf-app --configuration development --port 4300 -o",
     "mf-app-2": "ng serve mf-app-2 --configuration development --port 4500 -o",
-    "start": "concurrently \"npm run host-app\" \"npm run mf-app\" \"npm run mf-app-2\"",
+    "mf-app-3": "ng serve mf-app-3 --configuration development --port 4600 -o",
+    "start": "concurrently \"npm run host-app\" \"npm run mf-app\" \"npm run mf-app-2\" \"npm run mf-app-3\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:host-app": "node dist/host-app/server/server.mjs",
     "serve:ssr:mf-app": "node dist/mf-app/server/server.mjs",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
-    "serve:ssr:mf-app-2": "node dist/mf-app-2/server/server.mjs"
+    "serve:ssr:mf-app-2": "node dist/mf-app-2/server/server.mjs",
+    "serve:ssr:mf-app-3": "node dist/mf-app-3/server/server.mjs"
   },
   "private": true,
   "dependencies": {
