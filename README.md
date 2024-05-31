@@ -22,6 +22,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 3. Microfrontend 2 (MFE 2): This microfrontend focuses on a different functionality with
    its own UI and local state.
 
+## Store NgRx
+- Integrate store between all apps
+- Simulate Server loading and getting data from store
+- Simulate CRUD operation integrations
+
+## MF APPs:
+
+const MFE_APP_URL = "http://localhost:4300/remoteEntry.js"; // internal MF app - few components plus list of items
+const MFE_APP_2_URL = "http://localhost:4400/remoteEntry.js"; // external repository with Angular app
+const MFE_APP_3_URL = "http://localhost:4500/remoteEntry.js"; // internal MF app - Create/Update item and insert to store
+const MFE_APP_4_URL = "http://localhost:4600/remoteEntry.js"; // internal MF app - Login example
+
+HOST app - Shell app http://localhost:4200
+
 ## Technologies:
    ● Angular 17 (for all applications)
 

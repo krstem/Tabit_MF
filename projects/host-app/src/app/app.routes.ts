@@ -2,10 +2,10 @@ import {loadRemoteModule} from '@angular-architects/module-federation';
 import {Routes} from '@angular/router';
 import {ShellComponent} from "./shell/shell.component";
 
-const MFE_APP_URL = "http://localhost:4300/remoteEntry.js";
-const MFE_APP_2_URL = "http://localhost:4400/remoteEntry.js"; // external repository
-const MFE_APP_3_URL = "http://localhost:4500/remoteEntry.js"; // external repository
-const MFE_APP_4_URL = "http://localhost:4600/remoteEntry.js"; // external repository
+const MFE_APP_URL = "http://localhost:4300/remoteEntry.js"; // internal MF app - few components plus list of items
+const MFE_APP_2_URL = "http://localhost:4400/remoteEntry.js"; // external repository with Angular app
+const MFE_APP_3_URL = "http://localhost:4500/remoteEntry.js"; // internal MF app - Create/Update item and insert to store
+const MFE_APP_4_URL = "http://localhost:4600/remoteEntry.js"; // internal MF app - Login example
 export const routes: Routes = [
   {
     path: '',
