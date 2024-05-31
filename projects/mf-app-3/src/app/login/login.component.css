@@ -4,7 +4,7 @@
     --mdc-outlined-card-outline-width:2px;
 }
 .wrap-login{
-    height: 70vh;
+    height: 100vh;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -24,7 +24,7 @@
     margin: 0 auto;
     width: 100%;
     display: flex;
-    height: calc(70% - (65px + 65px));
+    height: calc(100% - (65px + 65px));
     justify-content: center;
     align-items: center;
 }
@@ -136,6 +136,5 @@ mat-card-actions {
         width: 100%;
     }
 }
-mat-progress-bar.mat-mdc-progress-bar{
-  overflow:visible;
-}
+
+

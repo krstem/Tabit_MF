@@ -1,17 +1,19 @@
 import { ActionReducer, MetaReducer } from "@ngrx/store";
-import {productKey, productReducer} from "../../../mf-app/src/app/products/store/product.reducers";
+import {productKey, productsReducer} from "../../../mf-app/src/app/products/store/products.reducers";
 import {localStorageSync} from "ngrx-store-localstorage";
 import {createProductKey, createProductReducer} from "../../../mf-app-2/src/app/store/product.reducers";
+import {authKey, authReducer} from "../../../mf-app-3/src/app/store/auth.reducers";
 
 export const appReducer = {
-  products: productReducer,
-  product: createProductReducer
+  products: productsReducer,
+  product: createProductReducer,
+  auth: authReducer
 }
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
 ): ActionReducer<any> {
   return localStorageSync({
-      keys: [productKey, createProductKey], // add here all keys from the APP
+      keys: [productKey, createProductKey, authKey], // add here all keys from the APP
       rehydrate: true,
       storage: sessionStorage,
   })(reducer);
