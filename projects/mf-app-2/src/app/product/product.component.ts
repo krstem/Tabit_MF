@@ -32,12 +32,12 @@ import {getProductsState, productRequestAction} from "../../../../host-app/src/s
 export class ProductComponent {
   productForm: FormGroup;
   inProgress: boolean = true;
-  isAnUpdate: boolean = true;
+  isAnUpdate: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private _store: Store<any>) {
     this.productForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
-      type: ['', [Validators.required]],
+      category: ['', [Validators.required]],
       price: ['', [Validators.required, Validators.min(1)]],
     });
     this.inProgress = true;
@@ -47,7 +47,7 @@ export class ProductComponent {
         this.isAnUpdate = true;
         this.productForm.setValue({
           name: data.product.name,
-          type: data.product.type,
+          category: data.product.category,
           price: data.product.price,
         })
       }

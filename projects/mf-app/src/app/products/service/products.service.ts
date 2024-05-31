@@ -8,7 +8,7 @@ const PRODUCT_DATA = {
   data: {
     products: [{
       name: 'Toast',
-      type: 'Lite Breakfast',
+      category: 'Lite Breakfast',
       price: 55.2
     }]
   }
@@ -20,22 +20,22 @@ const PRODUCTS_DATA = {
     products: [
       {
         name: 'Cornflakes',
-        type: 'Breakfast',
+        category: 'Breakfast',
         price: 15.9
       },
       {
         name: 'Omlet',
-        type: 'Breakfast',
+        category: 'Breakfast',
         price: 55.2
       },
       {
         name: 'Beacon sandwich',
-        type: 'BRK Sandwiches',
+        category: 'BRK Sandwiches',
         price: 23.8
       },
       {
         name: 'Sausage Bacon Egg',
-        type: 'BRK Sandwiches',
+        category: 'BRK Sandwiches',
         price: 45.0
       },
     ]
