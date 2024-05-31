@@ -53,7 +53,6 @@ export class ProductsService {
   }
 
   createProduct(payload: any) {
-    console.log(payload, '***************')
     return of({
       success: 200,
       data: {
