@@ -41,6 +41,7 @@ module.exports = {
         "myLoginApp": "http://localhost:4400/remoteEntry.js",
         "mfApp2": "http://localhost:4500/remoteEntry.js",
         "mfApp3": "http://localhost:4600/remoteEntry.js",
+        "mfAppVue": "https://mango-field-0d0778c10.azurestaticapps.net/remoteEntry.js",
       },
 
       shared: share({

@@ -1,6 +1,7 @@
 import {loadRemoteModule} from '@angular-architects/module-federation';
 import {Routes} from '@angular/router';
 import {ShellComponent} from "./shell/shell.component";
+import {WebComponentWrapper, WebComponentWrapperOptions} from "@angular-architects/module-federation-tools";
 
 const MFE_APP_URL = "http://localhost:4300/remoteEntry.js"; // internal MF app - few components plus list of items
 const MFE_APP_2_URL = "http://localhost:4400/remoteEntry.js"; // external repository with Angular app
@@ -82,5 +83,38 @@ export const routes: Routes = [
         exposedModule: "./App",
       }).then(m => m.AppComponent).catch(err => console.log(err));
     }
-  }
+  },
+  {
+    path: 'angularjs',
+    component: WebComponentWrapper,
+    data: {
+      type: 'script',
+      remoteEntry: 'https://calm-mud-0a3ee4a10.azurestaticapps.net/remoteEntry.js',
+      remoteName: 'angularjs',
+      exposedModule: './web-components',
+      elementName: 'angularjs-element'
+    } as WebComponentWrapperOptions
+  },
+  {
+    path: 'vue',
+    component: WebComponentWrapper,
+    data: {
+      type: 'script',
+      remoteEntry: 'https://mango-field-0d0778c10.azurestaticapps.net/remoteEntry.js',
+      remoteName: 'vue',
+      exposedModule: './web-components',
+      elementName: 'vue-element'
+    } as WebComponentWrapperOptions
+  },
+  {
+    path: 'react',
+    component:  WebComponentWrapper,
+    data: {
+      type: 'script',
+      remoteEntry: 'https://witty-wave-0a695f710.azurestaticapps.net/remoteEntry.js',
+      remoteName: 'react',
+      exposedModule: './web-components',
+      elementName: 'react-element'
+    } as WebComponentWrapperOptions
+  },
 ];
