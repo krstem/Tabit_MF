@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - my-app-2 Angular application with UI - here we crate crud operation for storing data
 - my-app-3 Angular application with UI - here we crate example of login operation, and we're storing data (copy of external app myLoginApp)
 - myLoginApp External Angular application in separate repo (https://github.com/krstem/angular-login-page-ui). I try to include external application in to MF arch and to have a store
-
+- ngx-tabit-ui-0.0.X.tgx (latest is .2) is internal library develop for shared components (repo: https://github.com/krstem/Tabit_SharedLibrary)
 ## Host app
 - contains shared AppActions, AppEffects and AppReducers
 - AppActions - Unique events that are dispatched from components and services. Based on the actions we are updating the store between MF apps, you can call for specific action for specific store (currently product's store)
