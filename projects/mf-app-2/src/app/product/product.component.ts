@@ -11,6 +11,7 @@ import {createProductRequestAction} from "../store/app.actions";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {getProductsState, productRequestAction} from "../../../../host-app/src/store/app.actions";
+import {ButtonComponent} from "ngx-tabit-ui";
 
 @Component({
   selector: 'app-product',
@@ -25,6 +26,7 @@ import {getProductsState, productRequestAction} from "../../../../host-app/src/s
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
+    ButtonComponent,
   ],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
@@ -51,9 +53,7 @@ export class ProductComponent {
           price: data.product.price,
         })
       }
-      ;
       this.inProgress = false;
-
     });
     this._store.select("products").pipe(takeUntilDestroyed()).subscribe((data: any) => {
       console.log(data, 'CHECK products STORE')

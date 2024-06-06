@@ -1,6 +1,7 @@
 <div style="display: flex" *ngIf="inProgress">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
+<tabitshared-button label="Shared button 1"></tabitshared-button>
 <div class="wrap-login">
   <div class="container">
     <form class="" [formGroup]="productForm" (ngSubmit)="onSubmit(productForm.value)">
